@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Log",
     platforms: [
-        .iOS(.v15)
+        .iOS(.v15), .macOS(.v12)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -14,11 +14,17 @@ let package = Package(
             name: "Log",
             targets: ["Log"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/manuelselch/Redux", .upToNextMajor(from: "1.0.5"))
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "Log",
+            dependencies: [
+                .product(name: "Redux", package: "Redux")
+            ],
             path: "Sources"
         ),
         .testTarget(
