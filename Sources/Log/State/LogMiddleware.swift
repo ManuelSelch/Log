@@ -7,6 +7,8 @@ import Redux
 public class LogMiddleware<AppState, AppAction, AppDependency>: IService {
     let logger: Logger = Logger(subsystem: "de.selch.refactor", category: "refactor log")
     
+    public init(){}
+    
     public func log(_ message: String){
         logger.log("\(message, privacy: .public)")
     }
