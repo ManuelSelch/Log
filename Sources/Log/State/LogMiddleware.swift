@@ -4,7 +4,7 @@ import os
 import Redux
 
 @available(iOS 16.0, *)
-class LogMiddleware<AppState, AppAction, AppDependency>: IService {
+public class LogMiddleware<AppState, AppAction, AppDependency>: IService {
     let logger: Logger = Logger(subsystem: "de.selch.refactor", category: "refactor log")
     
     public func log(_ message: String){
