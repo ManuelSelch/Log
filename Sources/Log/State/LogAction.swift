@@ -4,4 +4,5 @@ import Foundation
 public enum LogAction {
     case error(_ error: String?)
     case message(_ message: String?)
+    case setLog(Bool)
 }

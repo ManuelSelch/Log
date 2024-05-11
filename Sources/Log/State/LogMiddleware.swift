@@ -4,7 +4,7 @@ import os
 import Redux
 
 @available(iOS 16.0, *)
-public class LogMiddleware<AppState, AppAction, AppDependency>: IService {
+public class LogMiddleware<AppAction>: IService {
     let logger: Logger = Logger(subsystem: "de.selch.refactor", category: "refactor log")
     
     public init(){}
@@ -13,7 +13,11 @@ public class LogMiddleware<AppState, AppAction, AppDependency>: IService {
         logger.log("\(message, privacy: .public)")
     }
     
-    public func handle(_ state: AppState, _ action: AppAction, _ env: AppDependency) -> AnyPublisher<LogAction, Never> {
+    public func handle(_ state: LogState, _ action: AppAction) -> AnyPublisher<LogAction, Never> {
+        if(!state.isLog){
+            return Empty().eraseToAnyPublisher()
+        }
+        
         let actionStr = "\(action)"
                 
         let methods = actionStr.split(separator: "(")

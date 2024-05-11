@@ -15,7 +15,8 @@ public extension LogState {
             state.error = error
         case .message(let message):
             state.message = message
-            break
+        case .setLog(let isLog):
+            state.isLog = isLog
         }
         
         
