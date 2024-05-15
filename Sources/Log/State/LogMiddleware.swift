@@ -19,7 +19,7 @@ public class LogMiddleware<AppAction>: IService {
         }
         
         let actionStr = "\(action)"
-                
+        print(actionStr)
         let methods = actionStr.split(separator: "(")
         var methodsFormatted: [String] = []
         for method in methods {
