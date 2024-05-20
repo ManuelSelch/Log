@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Log",
     platforms: [
-        .iOS(.v15), .macOS(.v12)
+        .iOS(.v16), .macOS(.v12)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
