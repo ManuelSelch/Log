@@ -3,7 +3,7 @@ import Redux
 
 @available(iOS 16.0, *)
 public struct LogView: View {
-    @EnvironmentObject var store: Store<LogState, LogAction, LogDependency>
+    @EnvironmentObject var store: StoreOf<LogModule>
     
     public init(){}
     

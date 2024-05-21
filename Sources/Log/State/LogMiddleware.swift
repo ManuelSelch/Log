@@ -13,7 +13,7 @@ public class LogMiddleware<AppAction>: IService {
         logger.log("\(message, privacy: .public)")
     }
     
-    public func handle(_ state: LogState, _ action: AppAction) -> AnyPublisher<LogAction, Never> {
+    public func handle(_ state: LogModule.State, _ action: AppAction) -> AnyPublisher<LogModule.Action, Never> {
         if(!state.isLog){
             return Empty().eraseToAnyPublisher()
         }
@@ -55,7 +55,7 @@ public class LogMiddleware<AppAction>: IService {
     }
     
     // MARK: - private functions
-    public func handleError(_ error: Error) -> AnyPublisher<LogAction, Error>  {
+    public func handleError(_ error: Error) -> AnyPublisher<LogModule.Action, Error>  {
         return just(.error("\(error)"))
     }
 }
