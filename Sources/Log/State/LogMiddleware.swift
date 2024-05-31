@@ -4,7 +4,7 @@ import os
 import Redux
 
 @available(iOS 16.0, *)
-public class LogMiddleware<AppAction>: IService {
+public class LogMiddleware<AppAction> {
     let logger: Logger = Logger(subsystem: "de.selch.refactor", category: "refactor log")
     
     public init(){}
@@ -56,7 +56,7 @@ public class LogMiddleware<AppAction>: IService {
     
     // MARK: - private functions
     public func handleError(_ error: Error) -> AnyPublisher<LogModule.Action, Error>  {
-        return just(.error("\(error)"))
+        return .send(.error("\(error)"))
     }
 }
 
