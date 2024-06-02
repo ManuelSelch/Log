@@ -13,11 +13,7 @@ public class LogMiddleware<AppAction> {
         logger.log("\(message, privacy: .public)")
     }
     
-    public func handle(_ state: LogModule.State, _ action: AppAction) -> AnyPublisher<LogModule.Action, Never> {
-        if(!state.isLog){
-            return Empty().eraseToAnyPublisher()
-        }
-        
+    public static func formatAction(_ action: AppAction) -> String {
         let actionStr = "\(action)"
         print(actionStr)
         let methods = actionStr.split(separator: "(")
@@ -49,8 +45,16 @@ public class LogMiddleware<AppAction> {
             actionFormatted += "." + method
         }
         
-        log(actionFormatted)
+        return actionFormatted
+    }
+    
+    public func handle(_ state: LogModule.State, _ action: AppAction) -> AnyPublisher<LogModule.Action, Never> {
+        if(!state.isLog){
+            return Empty().eraseToAnyPublisher()
+        }
         
+        let actionFormatted = Self.formatAction(action)
+        log(actionFormatted)
         return Just(.message(actionFormatted)).eraseToAnyPublisher()
     }
     
