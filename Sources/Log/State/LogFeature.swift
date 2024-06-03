@@ -2,7 +2,7 @@ import Foundation
 import Combine
 import Redux
 
-public struct LogModule: Reducer  {
+public struct LogFeature: Reducer  {
     public init() {}
     
     public struct State: Equatable, Codable {

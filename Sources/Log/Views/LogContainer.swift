@@ -2,8 +2,8 @@ import SwiftUI
 import Redux
 
 @available(iOS 16.0, *)
-public struct LogView: View {
-    @EnvironmentObject var store: StoreOf<LogModule>
+public struct LogContainer: View {
+    @ObservedObject var store: StoreOf<LogFeature>
     
     public init(){}
     
