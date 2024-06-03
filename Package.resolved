@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/manuelselch/Redux",
       "state" : {
-        "revision" : "73483b2c426372a0f134f129e10e58e1dc332a09",
-        "version" : "1.1.0"
+        "revision" : "125a36bb12ba1cf1c7140dfcad6a70778f4d1d14",
+        "version" : "1.1.3"
       }
     },
     {

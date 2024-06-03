@@ -5,7 +5,9 @@ import Redux
 public struct LogContainer: View {
     @ObservedObject var store: StoreOf<LogFeature>
     
-    public init(){}
+    public init(store: StoreOf<LogFeature>) {
+        self.store = store
+    }
     
     public var body: some View {
         HStack {

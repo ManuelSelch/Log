@@ -48,7 +48,7 @@ public class LogMiddleware<AppAction> {
         return actionFormatted
     }
     
-    public func handle(_ state: LogModule.State, _ action: AppAction) -> AnyPublisher<LogModule.Action, Never> {
+    public func handle(_ state: LogFeature.State, _ action: AppAction) -> AnyPublisher<LogFeature.Action, Never> {
         if(!state.isLog){
             return Empty().eraseToAnyPublisher()
         }
@@ -59,7 +59,7 @@ public class LogMiddleware<AppAction> {
     }
     
     // MARK: - private functions
-    public func handleError(_ error: Error) -> AnyPublisher<LogModule.Action, Error>  {
+    public func handleError(_ error: Error) -> AnyPublisher<LogFeature.Action, Error>  {
         return .send(.error("\(error)"))
     }
 }
