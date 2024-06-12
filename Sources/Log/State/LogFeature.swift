@@ -13,7 +13,7 @@ public struct LogFeature: Reducer  {
         public init(){}
     }
     
-    public enum Action: Codable {
+    public enum Action: Codable, Equatable {
         case error(_ error: String?)
         case message(_ message: String?)
         case setLog(Bool)
