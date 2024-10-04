@@ -15,7 +15,7 @@ let package = Package(
             targets: ["Log"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/manuelselch/Redux", .upToNextMajor(from: "1.1.3"))
+        .package(url: "https://github.com/manuelselch/Redux", .upToNextMajor(from: "1.2.14"))
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
